@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Vimlesh Kumar Kanaujiya">
+    <meta name="Keywords" content="Google Scholar Profile Picture, Google Scholar Profile Image Generator">
+
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Vimlesh Kumar Kanaujiya">
+    <meta property="og:description" content="Generate Perfect Google Scholar Profile Picture.">
+    <meta property="og:url" content="https://vimleshkumarkanaujiya.github.io">
+    <meta property="og:site_name" content="Google Scholar Profile Picture Generator">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://vimleshkumarkanaujiya.github.io/images/sacred-geometry.svg">
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <!-- Croppie CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
+    
+    <title>Google Scholar Profile Image Generator</title>
+    
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://github.com/vimleshkumarkanaujiya",
+            "name": "Vimlesh Kumar Kanaujiya",
+            "givenName": "Vimlesh Kumar",
+            "familyName": "Kanaujiya",
+            "alternateName": "Vimlesh",
+            "jobTitle": "Researcher",
+            "description": "Researcher interested in quantum technology, condensed matter physics, and quantum hardware, with interests in superconducting qubits, and philosophy.",
+            "url": "https://vimleshkumarkanaujiya.github.io/",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Indian Institute of Technology (BHU), Varanasi",
+                "url": "https://iitbhu.ac.in/"
+            },
+            "alumniOf": {
+                "@type": "Organization",
+                "name": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
+                "url": "https://aktu.ac.in/"
+            },
+            "knowsAbout": [
+                "Quantum Science",
+                "Computer Science",
+                "Superconducting Qubits",
+                "Philosophy"
+            ],
+            "sameAs": [
+                "https://scholar.google.com/citations?user=ax-PDjwAAAAJ&hl=en",
+                "https://orcid.org/0000-0002-0201-8525",
+                "https://www.linkedin.com/in/kanaujiyavimleshkumar",
+                "https://www.crunchbase.com/person/vimlesh-kumar-kanaujiya",
+                "https://github.com/vimleshkumarkanaujiya"
+            ]
+        }
+    </script>
+    
+    <style>
+        /* Additional styles for the image cropper */
+        .cropper-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        
+        .cropper-section h3 {
+            font-family: 'Bebas Neue', 'Trap', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #666;
+            padding-bottom: 10px;
+        }
+        
+        .upload-area {
+            text-align: center;
+            padding: 30px;
+            border: 2px dashed #666;
+            border-radius: 4px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #000000;
+            background-color: #f0f0f0;
+        }
+        
+        .upload-area i {
+            font-size: 48px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .upload-area h4 {
+            font-family: 'Bebas Neue', 'Trap', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        
+        .upload-area p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        #upload-demo {
+            display: none;
+            margin: 20px 0;
+        }
+        
+        .cropper-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .cropper-controls button {
+            font-family: 'Bebas Neue', 'Trap', 'Arial Narrow', Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding: 8px 20px;
+            border: 1px solid #666;
+            background-color: #fff;
+            color: #000000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cropper-controls button:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+        
+        .cropper-controls button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .cropper-controls button:disabled:hover {
+            background-color: #fff;
+            color: #000000;
+        }
+        
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #666;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        
+        .result-preview {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .result-preview h4 {
+            font-family: 'Bebas Neue', 'Trap', 'Arial Narrow', Arial, sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        
+        .result-preview img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        
+        .download-link {
+            display: inline-block;
+            font-family: 'Bebas Neue', 'Trap', 'Arial Narrow', Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding: 8px 20px;
+            border: 1px solid #666;
+            background-color: #fff;
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .download-link:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+        
+        .file-input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .upload-wrapper {
+            position: relative;
+        }
+        
+        @media screen and (max-width: 767px) {
+            .cropper-section {
+                padding: 15px;
+            }
+            
+            .upload-area {
+                padding: 20px;
+            }
+            
+            .cropper-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cropper-controls button {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div id="center">
+            <!-- Image Cropper Section -->
+            <div class="cropper-section">
+                <h3><i class="fa-brands fa-google-scholar"></i> Google Scholar Profile Picture Generator</h3>
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">Crop images to perfect squares for <b>Google Scholar</b></p>
+                
+                <div class="upload-wrapper">
+                    <div class="upload-area" id="uploadTrigger">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Choose an Image File</h4>
+                        <p>Click to upload or drag & drop (JPG, PNG, WebP, etc.)</p>
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept="image/*">
+                </div>
+                
+                <div id="upload-demo"></div>
+                
+                <div class="cropper-controls">
+                    <button id="cropBtn" disabled>
+                        <i class="fas fa-magic"></i> Generate Your Picture
+                    </button>
+                    <button id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+                
+                <div id="result">
+                    <div class="result-preview">
+                        <h4><i class="fas fa-check-circle"></i> Your Cropped Image</h4>
+                        <div id="imagePreview"></div>
+                    </div>
+                    <div style="text-align: center;">
+                        <a id="downloadLink" class="download-link" download="gsc_profile.jpg">
+                            <i class="fas fa-download"></i> Download Your Picture
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="right">
+            <table height="100%">
+                <tbody>
+                    <tr>
+                        <td valign="top" width="100%">
+                            <img height="180" width="180" border="0" src="images/sacred-geometry.svg" alt="Sacred Geometry" class="logo-img">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="bottom" width="100%">
+                            <ul class="iconlist">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/kanaujiyavimleshkumar/">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://scholar.google.com/citations?user=ax-PDjwAAAAJ&hl=en">
+                                        <i class="fa-brands fa-google-scholar"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/kanaujiyavimleshkumar">
+                                        <i class="fa-brands fa-square-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/kanaujiya369/">
+                                        <i class="fa-brands fa-square-x-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://orcid.org/0000-0002-0201-8525">
+                                        <i class="fa-brands fa-orcid"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/vimleshkumarkanaujiya">
+                                        <i class="fa-brands fa-square-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <hr>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Croppie JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+    
+    <script>
+    let $uploadCrop;
+    let currentImageUrl = null;
+    
+    // Initialize Croppie
+    $(document).ready(function() {
+        $uploadCrop = $('#upload-demo').croppie({
+            enableExif: true,
+            viewport: {
+                width: 256,
+                height: 256,
+                type: 'square'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            },
+            enableResize: false,
+            showZoomer: true,
+            enableZoom: true,
+            mouseWheelZoom: 'ctrl'
+        });
+    });
+    
+    // Handle image upload
+    $('#fileInput').on('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+    
+        // Update UI
+        $('#uploadTrigger h4').html('<i class="fas fa-check-circle"></i> Image Selected');
+        $('#uploadTrigger p').text(file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)');
+        
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            $('#upload-demo').show();
+            $('#cropBtn').prop('disabled', false);
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            });
+        };
+        reader.readAsDataURL(file);
+    });
+    
+    // Generate JPG
+    $('#cropBtn').on('click', function () {
+        // Show loading state
+        var $btn = $(this);
+        var originalText = $btn.html();
+        $btn.html('<i class="fas fa-spinner fa-spin"></i> Processing...');
+        $btn.prop('disabled', true);
+        
+        $uploadCrop.croppie('result', {
+            type: 'blob',
+            size: { width: 256, height: 256 },
+            format: 'jpeg',
+            quality: 0.95
+        }).then(function (blob) {
+            // Reset button state
+            $btn.html(originalText);
+            $btn.prop('disabled', false);
+            
+            // Clean up previous image URL if exists
+            if (currentImageUrl) {
+                URL.revokeObjectURL(currentImageUrl);
+            }
+            
+            currentImageUrl = URL.createObjectURL(blob);
+            
+            // Update result section
+            $('#imagePreview').html(`<img src="${currentImageUrl}" alt="Cropped Image" style="max-width: 256px; max-height: 256px;">`);
+            $('#downloadLink').attr('href', currentImageUrl);
+            $('#result').show();
+            
+            // Scroll to result
+            $('html, body').animate({
+                scrollTop: $('#result').offset().top - 100
+            }, 500);
+            
+            // Log final size
+            const img = new Image();
+            img.onload = function() {
+                console.log('Final image size:', this.width, '×', this.height);
+            };
+            img.src = currentImageUrl;
+        }).catch(function(error) {
+            console.error('Error cropping image:', error);
+            $btn.html(originalText);
+            $btn.prop('disabled', false);
+            alert('Error processing image. Please try again.');
+        });
+    });
+    
+    // Reset functionality
+    $('#resetBtn').on('click', function() {
+        $('#fileInput').val('');
+        $('#upload-demo').hide();
+        $('#cropBtn').prop('disabled', true);
+        $('#result').hide();
+        
+        // Reset upload area text
+        $('#uploadTrigger h4').html('Choose an Image File');
+        $('#uploadTrigger p').text('Click to upload or drag & drop (JPG, PNG, WebP, etc.)');
+        $('#uploadTrigger').removeClass('drag-over');
+        
+        // Clean up image URL
+        if (currentImageUrl) {
+            URL.revokeObjectURL(currentImageUrl);
+            currentImageUrl = null;
+        }
+        
+        // Reset croppie
+        $uploadCrop.croppie('destroy');
+        $uploadCrop = $('#upload-demo').croppie({
+            enableExif: true,
+            viewport: {
+                width: 256,
+                height: 256,
+                type: 'square'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            },
+            enableResize: false,
+            showZoomer: true,
+            enableZoom: true,
+            mouseWheelZoom: 'ctrl'
+        });
+    });
+    
+    // Drag and drop functionality
+    $('#uploadTrigger').on('dragover', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).css({
+            'border-color': '#000000',
+            'background-color': '#f0f0f0'
+        });
+    });
+    
+    $('#uploadTrigger').on('dragleave', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).css({
+            'border-color': '#666',
+            'background-color': '#fff'
+        });
+    });
+    
+    $('#uploadTrigger').on('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).css({
+            'border-color': '#666',
+            'background-color': '#fff'
+        });
+        
+        const files = e.originalEvent.dataTransfer.files;
+        if (files.length > 0) {
+            $('#fileInput')[0].files = files;
+            $('#fileInput').trigger('change');
+        }
+    });
+    
+    // Click on upload trigger to open file dialog
+    $('#uploadTrigger').on('click', function(e) {
+        // Only trigger if not clicking on a child element that should do something else
+        if (e.target === this || $(e.target).is('i, h4, p')) {
+            $('#fileInput').click();
+        }
+    });
+    </script>
+</body>
+</html>
